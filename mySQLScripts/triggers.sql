@@ -1,0 +1,12 @@
+USE hackbotbi;
+
+-- TRIGGER PARA HASHEAR LA CONTRASEÑA --
+DELIMITER $$
+CREATE TRIGGER user_insert
+BEFORE INSERT ON USERS
+FOR EACH ROW
+BEGIN
+    SET NEW.user_password = SHA2(NEW.user_password, 256);
+END$$
+DELIMITER ;
+
