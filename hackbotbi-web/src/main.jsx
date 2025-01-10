@@ -8,17 +8,20 @@ import {
 
 import './index.css'
 import Login from './Login/Login';
+import Landing from './Landing/Landing';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: ( <Login/> ),
+  },
+  {
+    path:"/index",
+    element: ( <Landing/>),
   }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
 );

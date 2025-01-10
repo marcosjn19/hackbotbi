@@ -1,0 +1,71 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Estilos generales */
+:root {
+  --bgColor     : #FFFFFF;
+  --bgAltColor  : #fcfafb;
+  --bgRealce    : #FFFFFF;
+  --mainColor   : #021c43;
+  --realceColor : #17c66d;
+  --fontColor   : #000000;
+}
+
+@media ( prefers-color-scheme: dark ) {
+  :root {
+    --bgColor    : #191B19;
+    --bgAltColor : rgba(44,44,44);
+    --bgRealce   : #000000;
+    --fontColor  : #FFFFFF;
+  }
+}
+
+html {
+  background-color: var(--bgColor);
+  color: var(--fontColor);
+  font-family: "Open Sans", serif;
+  font-optical-sizing: auto;
+}
+
+h1 {
+  margin: auto;
+  width: fit-content;
+  font-weight: 750;
+}
+
+button {
+  background-color: transparent;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+  border-radius: 3rem;
+}
+
+.main-btn {
+  background-color: white;
+  border: 2px solid var(--mainColor);
+  transition: all ease-in-out 300ms;
+}
+
+.main-btn:hover {
+  background-color: var(--mainColor);
+  color: white;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.alt-btn {
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: white;
+  transition: all ease-in-out 300ms;
+}
+
+.alt-btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: 2px solid white;
+}
