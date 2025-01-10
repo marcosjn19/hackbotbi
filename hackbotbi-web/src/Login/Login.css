@@ -1,0 +1,54 @@
+
+.logo-container {
+    margin: auto;
+    width: fit-content;
+    align-items: center;
+    margin-top: -3rem;
+    margin-bottom: -5rem;
+}
+
+img {
+    width  : 20rem;
+    height: 20rem;
+    margin : auto;
+}
+@media ( prefers-color-scheme: dark ) {
+    img {
+        filter: contrast(300%) invert() grayscale(100%) ;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+input {
+    border: hidden;
+    border-bottom: solid;
+    border-color: gray;
+    margin-top: 2rem;
+    width: 15rem;
+    font-size: 1rem;
+    color: var(--fontColor);
+    background-color: transparent;
+    padding-left: 0.1rem;
+    outline: none;
+    transition: all ease-in-out 300ms;
+}
+
+input:focus {
+    border: hidden;
+    border-bottom: solid;
+    border-color: var(--fontColor)
+}
+
+.login-btn {
+    margin-top: 2rem;
+    width: 12rem;
+}
+
+.register-btn {
+    width: 12rem;
+}
