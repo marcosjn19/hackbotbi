@@ -5,3 +5,15 @@
     justify-content: space-between;
     margin-top: 1rem;
 }
+
+.error-message {
+    text-align: center;
+    filter: opacity(70%);
+    font-size: small;
+    transition: all ease-in-out 200ms;
+}
+
+.icon-login {
+    margin:auto;
+    margin-right: 0.5rem;
+}

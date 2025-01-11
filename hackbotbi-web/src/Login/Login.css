@@ -50,5 +50,14 @@ input:focus {
 }
 
 .register-btn {
+    margin-top: 2rem;
     width: 12rem;
+}
+
+.input-container {
+    padding: 1rem;
+}
+
+h1 {
+    margin: auto;
 }

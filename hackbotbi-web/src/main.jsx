@@ -7,8 +7,13 @@ import {
 } from "react-router";
 
 import './index.css'
+import './normalize.css'
 import Login from './Login/Login';
 import Landing from './Landing/Landing';
+import Clients from './Clients/Clients';
+import NewClientForm from './Clients/NewClientForm';
+import ProtectedRoute from './Utils/ProtectedRoute';
+
 
 const router = createBrowserRouter([
   {
@@ -17,7 +22,20 @@ const router = createBrowserRouter([
   },
   {
     path:"/index",
-    element: ( <Landing/>),
+    element: ( <ProtectedRoute element = { <Landing/> } /> ),
+  },
+  {
+    path:"/myclients",
+    element: ( <ProtectedRoute element = { <Clients/> } /> ),
+  },
+  {
+    path:"/newclient",
+    element: <NewClientForm/>
+    // element: ( <ProtectedRoute element = { <NewClientForm/> } /> ),
+  },
+  {
+    path:"/logout",
+    element: (<Login/>)
   }
 ])
 

@@ -1,0 +1,47 @@
+.newclient-main-container {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: fit-content;
+    margin: auto;
+}
+
+.personal-info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 60rem;
+    align-items: center;
+}
+
+h3 {
+    text-align: left;
+    margin-bottom: 0;
+    margin-top: 2rem;
+}
+
+.direccion-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.btn-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 14rem;
+    height: fit-content; 
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.alt-btn {
+    height: fit-content;
+}
+
+.main-btn {
+    visibility: collapse;
+}
