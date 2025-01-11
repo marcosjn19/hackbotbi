@@ -37,15 +37,15 @@ class Clients ( db.Model ):
 
 @app.route ( "/")
 def index():
-    return app.send_static_file("index.html")
+    return render_template("index.html")
 
 @app.route ( "/index")
 def main():
-    return app.send_static_file("index.html")
+    return render_template("index.html")
 
 @app.route('/<path:path>')
 def catch_all(path):
-    return app.send_static_file("index.html")
+    return render_template("index.html")
 
 @app.route ( "/users", methods = ['GET'] ) 
 def getusers():
