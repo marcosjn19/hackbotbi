@@ -3,11 +3,13 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import os
 import hashlib
+from opencage.geocoder import OpenCageGeocode
 
 
 app = Flask( __name__ , static_folder='../hackbotbi-web/dist/static',template_folder = '../hackbotbi-web/dist')
 cors = CORS( app, origins = '*', supports_credentials=True)
 url = os.getenv('URL')
+geo_api = os.getenv('GEOAPICODE')
 app.config["SQLALCHEMY_DATABASE_URI"] = url.replace("mysql://", "mysql+mysqlconnector://")
 db = SQLAlchemy(app)
 app.secret_key = os.getenv('SECRET_SESSION')
@@ -101,6 +103,33 @@ def check_session():
         return jsonify({"logged": True, "user": session['email']}), 200
     else:
         return jsonify({"logged": False}), 401
+
+@app.route('/getcoords', methods=['POST'])
+def get_coordinates_opencage():
+    geocoder = OpenCageGeocode(geo_api)
+    results = geocoder.geocode(request.json.get("calle")+ " " + request.json.get("numero") + "," + request.json.get("ciudad") + "," + request.json.get("pais"))
+    if results:
+        print ( results )
+        return jsonify({"lat": results[0]['geometry']['lat'], 
+                        "long":results[0]['geometry']['lng']}), 200
+    else:
+        return jsonify({"error": True}), 401
+    
+@app.route("/register/client", methods=["POST"])
+def registerClient():
+    if 'logged' in session and session['logged']:
+        client_name = request.json.get("name")
+        client_lastname = request.json.get("lastname")
+        client_mail = request.json.get("mail")
+        client_lat = request.json.get("lat")
+        client_long = request.json.get("long")
+        client_user = session['email']
+        db.session.add(Clients(client_mail=client_mail, client_name=client_name, client_lastname=client_lastname,  client_lat=client_lat, client_long=client_long, client_user=client_user))
+        db.session.commit()
+        return jsonify({"message":"Cliente dado de alta"}), 200
+    else:
+        return jsonify({"error": True}), 401
+    
     
 if __name__ == "__main__":
     app.run( debug = True, host = '0.0.0.0', port = 5555)

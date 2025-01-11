@@ -30,8 +30,8 @@ const router = createBrowserRouter([
   },
   {
     path:"/newclient",
-    element: <NewClientForm/>
-    // element: ( <ProtectedRoute element = { <NewClientForm/> } /> ),
+    // element: <NewClientForm/>
+    element: ( <ProtectedRoute element = { <NewClientForm/> } /> ),
   },
   {
     path:"/logout",

@@ -1,11 +1,10 @@
 .newclient-main-container {
     text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1rem;
-    width: fit-content;
+    width: 100%;
+}
+form {
     margin: auto;
+    width: fit-content;
 }
 
 .personal-info-container {
@@ -14,6 +13,14 @@
     justify-content: space-evenly;
     width: 60rem;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .personal-info-container {
+        flex-direction: column;
+        width: fit-content;
+        margin: auto;
+    }
 }
 
 h3 {
@@ -26,6 +33,14 @@ h3 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+@media (max-width: 768px) {
+    .direccion-container {
+        flex-direction: column;
+        width: fit-content;
+        margin: auto;
+    }
 }
 
 .btn-form-container {
@@ -42,6 +57,12 @@ h3 {
     height: fit-content;
 }
 
-.main-btn {
-    visibility: collapse;
+.validate-btn {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
+
+.mapa-container {
+    margin: auto;
+}
+

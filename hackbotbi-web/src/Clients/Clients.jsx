@@ -1,7 +1,7 @@
 import Menu from '../Menu/Menu'
 import './Clients.css'
 import { useEffect, useState } from 'react'
-import ClientRow from './ClientTable/ClientRow'
+import ClientRow from './ClientRow'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"; 
 

@@ -9,7 +9,7 @@ const ProtectedRoute = ({ element }) => {
     axios
       .get("/check-session", { withCredentials: true })
       .then((response) => {
-        setIsAuthenticated(response.data.logged_in);
+        setIsAuthenticated(response.data.logged);
       })
       .catch(() => {
         setIsAuthenticated(false);
