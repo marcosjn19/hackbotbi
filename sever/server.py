@@ -4,9 +4,15 @@ from flask_sqlalchemy import SQLAlchemy
 from decouple import config
 import hashlib
 from opencage.geocoder import OpenCageGeocode
+import os
 
 
-app = Flask( __name__ , static_folder='../hackbotbi-web/dist/static',template_folder = '../hackbotbi-web/dist')
+app = Flask(
+    __name__,
+    static_folder=os.path.join(os.path.dirname(__file__), '../hackbotbi-web/dist/static'),
+    template_folder=os.path.join(os.path.dirname(__file__), '../hackbotbi-web/dist')
+)
+
 cors = CORS( app, origins = '*', supports_credentials=True)
 url = config('URL')
 geo_api = config('GEOAPICODE')
