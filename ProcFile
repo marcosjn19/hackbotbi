@@ -1,2 +1,1 @@
-gunicorn -b :5000 --access-logfile - --error-logfile - server.server:app
 web: gunicorn server.server:app

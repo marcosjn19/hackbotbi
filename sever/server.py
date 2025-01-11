@@ -37,15 +37,15 @@ class Clients ( db.Model ):
 
 @app.route ( "/")
 def index():
-    return render_template("index.html")
+    return app.send_static_file("index.html")
 
 @app.route ( "/index")
 def main():
-    return render_template("index.html")
+    return app.send_static_file("index.html")
 
 @app.route('/<path:path>')
 def catch_all(path):
-    return render_template("index.html")
+    return app.send_static_file("index.html")
 
 @app.route ( "/users", methods = ['GET'] ) 
 def getusers():
@@ -137,5 +137,7 @@ def registerClient():
     else:
         return jsonify({"error": True}), 401
     
-# if __name__ == "__main__":
-#     app.run( debug = False, host = '0.0.0.0', port = 5555)
+if __name__ == "__main__":
+    # Get Heroku port, fall back to port 5000
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
