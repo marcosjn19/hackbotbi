@@ -137,5 +137,5 @@ def registerClient():
     else:
         return jsonify({"error": True}), 401
     
-if __name__ == "__main__":
-    app.run( debug = False, host = '0.0.0.0', port = 5555)
+# if __name__ == "__main__":
+#     app.run( debug = False, host = '0.0.0.0', port = 5555)
