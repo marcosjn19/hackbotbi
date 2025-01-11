@@ -1,18 +1,18 @@
 from flask import Flask, jsonify, render_template, request, session
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-import os
+from decouple import config
 import hashlib
 from opencage.geocoder import OpenCageGeocode
 
 
 app = Flask( __name__ , static_folder='../hackbotbi-web/dist/static',template_folder = '../hackbotbi-web/dist')
 cors = CORS( app, origins = '*', supports_credentials=True)
-url = os.getenv('URL')
-geo_api = os.getenv('GEOAPICODE')
+url = config('URL')
+geo_api = config('GEOAPICODE')
 app.config["SQLALCHEMY_DATABASE_URI"] = url.replace("mysql://", "mysql+mysqlconnector://")
 db = SQLAlchemy(app)
-app.secret_key = os.getenv('SECRET_SESSION')
+app.secret_key = config('SECRET_SESSION')
 
 class Users ( db.Model ):
     user_id       = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -130,6 +130,5 @@ def registerClient():
     else:
         return jsonify({"error": True}), 401
     
-    
 if __name__ == "__main__":
-    app.run( debug = True, host = '0.0.0.0', port = 5555)
+    app.run( debug = False, host = '0.0.0.0', port = 5555)
