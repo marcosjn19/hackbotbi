@@ -9,8 +9,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(
     __name__,
-    static_folder=os.path.join(BASE_DIR, '../hackbotbi-web/dist/static'),
-    template_folder=os.path.join(BASE_DIR, '../hackbotbi-web/dist')
+    static_folder=os.path.join(BASE_DIR, './hackbotbi-web/dist/static'),
+    template_folder=os.path.join(BASE_DIR, './hackbotbi-web/dist')
 )
 
 cors = CORS( app, origins = '*', supports_credentials=True)
