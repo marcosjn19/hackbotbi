@@ -5,7 +5,7 @@ from decouple import config
 import hashlib
 from opencage.geocoder import OpenCageGeocode
 import os
-
+#.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(
     __name__,
