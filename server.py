@@ -83,6 +83,7 @@ def register():
         db.session.add(Users(user_mail=user_mail, user_password=user_password))
         db.session.commit()
         session['email'] = user_mail
+        session['logged'] = True
         return jsonify({"message":"Usuario creado exitosamente"}), 200
 
 @app.route("/logout", methods=["POST"])
