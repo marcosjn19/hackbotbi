@@ -77,7 +77,7 @@ function LoginForm() {
                 </div>
                 {pwdError && <p className="error-message">Contraseña invalida, debe contener letras, numeros y al menos 6 caracteres</p>}
             </div>
-
+            {message && <p className="error-message">{message}</p>}
             <div><button type="submit" className="login-btn main-btn">Iniciar Sesión</button></div>
             <div><button className="register-btn alt-btn" onClick={(e) => handleSubmit(e, "register")}>Registrarse</button></div>
         </form>
